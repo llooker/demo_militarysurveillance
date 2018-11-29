@@ -1,7 +1,7 @@
 connection: "lookerdata"
 
 include: "*.view.lkml"         # include all views in this project
-# include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "*.dashboard.lookml"  # include all dashboards in this project
 
 datagroup: once_daily {
   max_cache_age: "24 hours"
