@@ -144,7 +144,32 @@ view: person {
         "
       }
     }
+    action: {
+      label: "Change Risk Score"
+      url: "https://desolate-refuge-53336.herokuapp.com/posts"
+      icon_url: "http://www.google.com/s2/favicons?domain_url=http://www.fbi.gov"
+      param: {
+        name: "some_auth_code"
+        value: "abc123456"
+      }
+      form_param: {
+        name: "Subject"
+        required: yes
+        default: "Change Risk Score for {{value}}"
+      }
+#       form_param: {
+#         name: "To Mailing List"
+#         required: yes
+#       }
+      form_param: {
+        name: "New Risk Score"
+        type: string
+        required: yes
+        default: "60"
+      }
+    }
   }
+
   dimension: full_id {
     type: string
     sql: concat(cast(${id} as string),' - ',${full_name}) ;;
