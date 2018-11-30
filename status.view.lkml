@@ -75,6 +75,11 @@ view: status {
     sql: DATE_SUB(DATE "2018-11-15", INTERVAL ${days_old} DAY) ;;
   }
 
+  measure: max_date {
+    type: date
+    sql: max(${date_last_updated}) ;;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
@@ -85,12 +90,24 @@ view: status {
     drill_fields: [id, person_id, date_last_updated, modality, status]
   }
 
+
+
   ## # Note: this data was generated in Mockaroo under Aaron Lutkowitz's account, schema #: https://www.mockaroo.com/schemas/141192
 
+    derived_table: {
+      datagroup_trigger: once_yearly
+      sql:
+        SELECT * FROM ${status_update1.SQL_TABLE_NAME} UNION ALL
+        SELECT * FROM ${status_update2.SQL_TABLE_NAME}
+      ;;
+    }
+
+}
+
+view: status_update1 {
   derived_table: {
     datagroup_trigger: once_yearly
     sql:
-
 SELECT 1 as id, 1 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 10 as days_old UNION ALL
 SELECT 2 as id, 1 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 18 as days_old UNION ALL
 SELECT 3 as id, 1 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 16 as days_old UNION ALL
@@ -1093,5 +1110,139 @@ SELECT 999 as id, 200 as person_id, 4 as modality_id, 'Documents' as modality, '
 SELECT 1000 as id, 200 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 16 as days_old
     ;;
   }
+}
 
+view: status_update2 {
+
+  derived_table: {
+    datagroup_trigger: once_yearly
+    sql:
+SELECT 1001 as id, 201 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 11 as days_old UNION ALL
+SELECT 1002 as id, 201 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 25 as days_old UNION ALL
+SELECT 1003 as id, 201 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 19 as days_old UNION ALL
+SELECT 1004 as id, 201 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 22 as days_old UNION ALL
+SELECT 1005 as id, 201 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 16 as days_old UNION ALL
+SELECT 1006 as id, 202 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 9 as days_old UNION ALL
+SELECT 1007 as id, 202 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 1 as days_old UNION ALL
+SELECT 1008 as id, 202 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Waiting' as status, 37 as days_old UNION ALL
+SELECT 1009 as id, 202 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 49 as days_old UNION ALL
+SELECT 1010 as id, 202 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 36 as days_old UNION ALL
+SELECT 1011 as id, 203 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 2 as days_old UNION ALL
+SELECT 1012 as id, 203 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 49 as days_old UNION ALL
+SELECT 1013 as id, 203 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Confirmed' as status, 10 as days_old UNION ALL
+SELECT 1014 as id, 203 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 2 as days_old UNION ALL
+SELECT 1015 as id, 203 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting' as status, 40 as days_old UNION ALL
+SELECT 1016 as id, 204 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 104 as days_old UNION ALL
+SELECT 1017 as id, 204 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 31 as days_old UNION ALL
+SELECT 1018 as id, 204 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 4 as days_old UNION ALL
+SELECT 1019 as id, 204 as person_id, 4 as modality_id, 'Documents' as modality, 'Submitted' as status, 36 as days_old UNION ALL
+SELECT 1020 as id, 204 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 1 as days_old UNION ALL
+SELECT 1021 as id, 205 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 35 as days_old UNION ALL
+SELECT 1022 as id, 205 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 13 as days_old UNION ALL
+SELECT 1023 as id, 205 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 11 as days_old UNION ALL
+SELECT 1024 as id, 205 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 4 as days_old UNION ALL
+SELECT 1025 as id, 205 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 20 as days_old UNION ALL
+SELECT 1026 as id, 206 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 74 as days_old UNION ALL
+SELECT 1027 as id, 206 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 44 as days_old UNION ALL
+SELECT 1028 as id, 206 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 10 as days_old UNION ALL
+SELECT 1029 as id, 206 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 2 as days_old UNION ALL
+SELECT 1030 as id, 206 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 118 as days_old UNION ALL
+SELECT 1031 as id, 207 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 8 as days_old UNION ALL
+SELECT 1032 as id, 207 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 4 as days_old UNION ALL
+SELECT 1033 as id, 207 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 54 as days_old UNION ALL
+SELECT 1034 as id, 207 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 4 as days_old UNION ALL
+SELECT 1035 as id, 207 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 3 as days_old UNION ALL
+SELECT 1036 as id, 208 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 14 as days_old UNION ALL
+SELECT 1037 as id, 208 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 34 as days_old UNION ALL
+SELECT 1038 as id, 208 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Waiting' as status, 23 as days_old UNION ALL
+SELECT 1039 as id, 208 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 15 as days_old UNION ALL
+SELECT 1040 as id, 208 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 23 as days_old UNION ALL
+SELECT 1041 as id, 209 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 40 as days_old UNION ALL
+SELECT 1042 as id, 209 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 9 as days_old UNION ALL
+SELECT 1043 as id, 209 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Confirmed' as status, 19 as days_old UNION ALL
+SELECT 1044 as id, 209 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 12 as days_old UNION ALL
+SELECT 1045 as id, 209 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting' as status, 35 as days_old UNION ALL
+SELECT 1046 as id, 210 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 34 as days_old UNION ALL
+SELECT 1047 as id, 210 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 38 as days_old UNION ALL
+SELECT 1048 as id, 210 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 30 as days_old UNION ALL
+SELECT 1049 as id, 210 as person_id, 4 as modality_id, 'Documents' as modality, 'Submitted' as status, 4 as days_old UNION ALL
+SELECT 1050 as id, 210 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 35 as days_old UNION ALL
+SELECT 1051 as id, 211 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 14 as days_old UNION ALL
+SELECT 1052 as id, 211 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 6 as days_old UNION ALL
+SELECT 1053 as id, 211 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 52 as days_old UNION ALL
+SELECT 1054 as id, 211 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 8 as days_old UNION ALL
+SELECT 1055 as id, 211 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 4 as days_old UNION ALL
+SELECT 1056 as id, 212 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 66 as days_old UNION ALL
+SELECT 1057 as id, 212 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 19 as days_old UNION ALL
+SELECT 1058 as id, 212 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 0 as days_old UNION ALL
+SELECT 1059 as id, 212 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 5 as days_old UNION ALL
+SELECT 1060 as id, 212 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 15 as days_old UNION ALL
+SELECT 1061 as id, 213 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 3 as days_old UNION ALL
+SELECT 1062 as id, 213 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 13 as days_old UNION ALL
+SELECT 1063 as id, 213 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 35 as days_old UNION ALL
+SELECT 1064 as id, 213 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 8 as days_old UNION ALL
+SELECT 1065 as id, 213 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 31 as days_old UNION ALL
+SELECT 1066 as id, 214 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 59 as days_old UNION ALL
+SELECT 1067 as id, 214 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 1 as days_old UNION ALL
+SELECT 1068 as id, 214 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Waiting' as status, 37 as days_old UNION ALL
+SELECT 1069 as id, 214 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 9 as days_old UNION ALL
+SELECT 1070 as id, 214 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 26 as days_old UNION ALL
+SELECT 1071 as id, 215 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 12 as days_old UNION ALL
+SELECT 1072 as id, 215 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 33 as days_old UNION ALL
+SELECT 1073 as id, 215 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Confirmed' as status, 0 as days_old UNION ALL
+SELECT 1074 as id, 215 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 17 as days_old UNION ALL
+SELECT 1075 as id, 215 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting' as status, 32 as days_old UNION ALL
+SELECT 1076 as id, 216 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 5 as days_old UNION ALL
+SELECT 1077 as id, 216 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 68 as days_old UNION ALL
+SELECT 1078 as id, 216 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 34 as days_old UNION ALL
+SELECT 1079 as id, 216 as person_id, 4 as modality_id, 'Documents' as modality, 'Submitted' as status, 12 as days_old UNION ALL
+SELECT 1080 as id, 216 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 11 as days_old UNION ALL
+SELECT 1081 as id, 217 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 6 as days_old UNION ALL
+SELECT 1082 as id, 217 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 63 as days_old UNION ALL
+SELECT 1083 as id, 217 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 9 as days_old UNION ALL
+SELECT 1084 as id, 217 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 2 as days_old UNION ALL
+SELECT 1085 as id, 217 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 5 as days_old UNION ALL
+SELECT 1086 as id, 218 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 56 as days_old UNION ALL
+SELECT 1087 as id, 218 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 13 as days_old UNION ALL
+SELECT 1088 as id, 218 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 8 as days_old UNION ALL
+SELECT 1089 as id, 218 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 2 as days_old UNION ALL
+SELECT 1090 as id, 218 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 3 as days_old UNION ALL
+SELECT 1091 as id, 219 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 26 as days_old UNION ALL
+SELECT 1092 as id, 219 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 35 as days_old UNION ALL
+SELECT 1093 as id, 219 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 25 as days_old UNION ALL
+SELECT 1094 as id, 219 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 2 as days_old UNION ALL
+SELECT 1095 as id, 219 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 21 as days_old UNION ALL
+SELECT 1096 as id, 220 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 18 as days_old UNION ALL
+SELECT 1097 as id, 220 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 55 as days_old UNION ALL
+SELECT 1098 as id, 220 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Waiting' as status, 30 as days_old UNION ALL
+SELECT 1099 as id, 220 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 39 as days_old UNION ALL
+SELECT 1100 as id, 220 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 13 as days_old UNION ALL
+SELECT 1101 as id, 221 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 48 as days_old UNION ALL
+SELECT 1102 as id, 221 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 11 as days_old UNION ALL
+SELECT 1103 as id, 221 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Confirmed' as status, 4 as days_old UNION ALL
+SELECT 1104 as id, 221 as person_id, 4 as modality_id, 'Documents' as modality, 'Waiting' as status, 21 as days_old UNION ALL
+SELECT 1105 as id, 221 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting' as status, 19 as days_old UNION ALL
+SELECT 1106 as id, 222 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 11 as days_old UNION ALL
+SELECT 1107 as id, 222 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 66 as days_old UNION ALL
+SELECT 1108 as id, 222 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 23 as days_old UNION ALL
+SELECT 1109 as id, 222 as person_id, 4 as modality_id, 'Documents' as modality, 'Submitted' as status, 16 as days_old UNION ALL
+SELECT 1110 as id, 222 as person_id, 5 as modality_id, 'Background Check' as modality, 'Confirmed' as status, 0 as days_old UNION ALL
+SELECT 1111 as id, 223 as person_id, 1 as modality_id, 'Weapons' as modality, 'Confirmed' as status, 14 as days_old UNION ALL
+SELECT 1112 as id, 223 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Waiting' as status, 21 as days_old UNION ALL
+SELECT 1113 as id, 223 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 35 as days_old UNION ALL
+SELECT 1114 as id, 223 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 4 as days_old UNION ALL
+SELECT 1115 as id, 223 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 23 as days_old UNION ALL
+SELECT 1116 as id, 224 as person_id, 1 as modality_id, 'Weapons' as modality, 'Submitted' as status, 8 as days_old UNION ALL
+SELECT 1117 as id, 224 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Submitted' as status, 10 as days_old UNION ALL
+SELECT 1118 as id, 224 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 9 as days_old UNION ALL
+SELECT 1119 as id, 224 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 9 as days_old UNION ALL
+SELECT 1120 as id, 224 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 97 as days_old UNION ALL
+SELECT 1121 as id, 225 as person_id, 1 as modality_id, 'Weapons' as modality, 'Waiting' as status, 38 as days_old UNION ALL
+SELECT 1122 as id, 225 as person_id, 2 as modality_id, 'Biometrics' as modality, 'Confirmed' as status, 3 as days_old UNION ALL
+SELECT 1123 as id, 225 as person_id, 3 as modality_id, 'Cell Phone' as modality, 'Submitted' as status, 13 as days_old UNION ALL
+SELECT 1124 as id, 225 as person_id, 4 as modality_id, 'Documents' as modality, 'Confirmed' as status, 5 as days_old UNION ALL
+SELECT 1125 as id, 225 as person_id, 5 as modality_id, 'Background Check' as modality, 'Waiting ' as status, 0 as days_old
+
+;;
+  }
 }
