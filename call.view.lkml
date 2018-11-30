@@ -170,7 +170,8 @@ view: call_combined {
     sql:
       SELECT * FROM ${call_pre1.SQL_TABLE_NAME} UNION ALL
       SELECT * FROM ${call_pre2.SQL_TABLE_NAME} UNION ALL
-      SELECT * FROM ${call_pre3.SQL_TABLE_NAME}
+      SELECT * FROM ${call_pre3.SQL_TABLE_NAME} UNION ALL
+      SELECT * FROM ${call_pre4.SQL_TABLE_NAME}
       ;;
   }
 }
@@ -3198,27 +3199,36 @@ SELECT 2996 as id, 200 as person_id, 113 as person_id_out, 55.2723731271 as dura
 SELECT 2997 as id, 83 as person_id, 124 as person_id_out, 1.7921002171 as duration, '2018-01-18 04:44:35' as date, 0.615111271 as diff_from_lat, 0.7161669338 as diff_from_long, 0.2459784922 as diff_from_lat_out, 0.5498778006 as diff_from_long_out UNION ALL
 SELECT 2998 as id, 129 as person_id, 119 as person_id_out, 2.9893465076 as duration, '2017-07-20 00:30:00' as date, 1.3020771116 as diff_from_lat, 0.0112916221 as diff_from_long, 0.6255735939 as diff_from_lat_out, 0.6338641584 as diff_from_long_out UNION ALL
 SELECT 2999 as id, 111 as person_id, 100 as person_id_out, 1.107148072 as duration, '2017-11-21 02:44:05' as date, 0.2884769034 as diff_from_lat, 2.4135306694 as diff_from_long, 0.3533194535 as diff_from_lat_out, 0.712558285 as diff_from_long_out UNION ALL
-SELECT 3000 as id, 50 as person_id, 115 as person_id_out, 8.7791816997 as duration, '2018-01-17 02:48:20' as date, 0.772802583 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out UNION ALL
-SELECT 3001 as id, 116 as person_id, 224 as person_id_out, 95.7642733767 as duration, '2017-08-15 23:52:47' as date, 1.4284009011 as diff_from_lat, 0.2502406095 as diff_from_long, 0.5046431743 as diff_from_lat_out, 0.5752105443 as diff_from_long_out UNION ALL
-SELECT 3002 as id, 116 as person_id, 224 as person_id_out, 3.7209556122 as duration, '2017-10-07 00:24:57' as date, 0.8944995023 as diff_from_lat, 0.0609547519 as diff_from_long, 0.1164173767 as diff_from_lat_out, 0.3251855976 as diff_from_long_out UNION ALL
-SELECT 3003 as id, 116 as person_id, 224 as person_id_out, 30.6210994 as duration, '2018-02-17 07:04:24' as date, 1.3834397778 as diff_from_lat, 0.5018669453 as diff_from_long, 0.1135063482 as diff_from_lat_out, 1.1914340656 as diff_from_long_out UNION ALL
-SELECT 3004 as id, 116 as person_id, 224 as person_id_out, 2.7746309091 as duration, '2018-03-31 02:18:17' as date, 0.4427012787 as diff_from_lat, 0.6815033073 as diff_from_long, 0.6967648148 as diff_from_lat_out, 0.5456786803 as diff_from_long_out UNION ALL
-SELECT 3005 as id, 116 as person_id, 224 as person_id_out, 10.6278692895 as duration, '2018-05-05 02:31:23' as date, 1.3376061089 as diff_from_lat, 0.1091144363 as diff_from_long, 0.8213888148 as diff_from_lat_out, 1.941302814 as diff_from_long_out UNION ALL
-SELECT 3006 as id, 224 as person_id, 116 as person_id_out, 12.9051510222 as duration, '2017-06-29 10:39:50' as date, 0.0438282586 as diff_from_lat, 1.1578269231 as diff_from_long, 0.0629411738 as diff_from_lat_out, 0.6404404361 as diff_from_long_out UNION ALL
-SELECT 3007 as id, 224 as person_id, 116 as person_id_out, 55.2723731271 as duration, '2018-08-15 08:08:55' as date, 0.8847920445 as diff_from_lat, 0.7161669338 as diff_from_long, 0.2459784922 as diff_from_lat_out, 0.5498778006 as diff_from_long_out UNION ALL
-SELECT 3008 as id, 224 as person_id, 116 as person_id_out, 9.7921002171 as duration, '2017-11-03 02:11:35' as date, 0.615111271 as diff_from_lat, 0.0112916221 as diff_from_long, 0.6255735939 as diff_from_lat_out, 0.6338641584 as diff_from_long_out UNION ALL
-SELECT 3009 as id, 224 as person_id, 116 as person_id_out, 2.9893465076 as duration, '2017-10-28 10:17:16' as date, 1.3020771116 as diff_from_lat, 2.4135306694 as diff_from_long, 0.3533194535 as diff_from_lat_out, 0.712558285 as diff_from_long_out UNION ALL
-SELECT 3010 as id, 224 as person_id, 116 as person_id_out, 10.107148072 as duration, '2018-01-18 04:44:35' as date, 0.2884769034 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out UNION ALL
-SELECT 3011 as id, 116 as person_id, 225 as person_id_out, 950.7642733767 as duration, '2017-08-15 23:52:47' as date, 1.4284009011 as diff_from_lat, 0.2502406095 as diff_from_long, 0.5046431743 as diff_from_lat_out, 0.5752105443 as diff_from_long_out UNION ALL
-SELECT 3012 as id, 116 as person_id, 225 as person_id_out, 300.7209556122 as duration, '2017-10-07 00:24:57' as date, 0.8944995023 as diff_from_lat, 0.0609547519 as diff_from_long, 0.1164173767 as diff_from_lat_out, 0.3251855976 as diff_from_long_out UNION ALL
-SELECT 3013 as id, 116 as person_id, 225 as person_id_out, 300.6210994 as duration, '2018-02-17 07:04:24' as date, 1.3834397778 as diff_from_lat, 0.5018669453 as diff_from_long, 0.1135063482 as diff_from_lat_out, 1.1914340656 as diff_from_long_out UNION ALL
-SELECT 3014 as id, 116 as person_id, 225 as person_id_out, 200.7746309091 as duration, '2018-03-31 02:18:17' as date, 0.4427012787 as diff_from_lat, 0.6815033073 as diff_from_long, 0.6967648148 as diff_from_lat_out, 0.5456786803 as diff_from_long_out UNION ALL
-SELECT 3015 as id, 116 as person_id, 225 as person_id_out, 107.6278692895 as duration, '2018-05-05 02:31:23' as date, 1.3376061089 as diff_from_lat, 0.1091144363 as diff_from_long, 0.8213888148 as diff_from_lat_out, 1.941302814 as diff_from_long_out UNION ALL
-SELECT 3016 as id, 225 as person_id, 116 as person_id_out, 12.9051510222 as duration, '2017-06-29 10:39:50' as date, 0.0438282586 as diff_from_lat, 1.1578269231 as diff_from_long, 0.0629411738 as diff_from_lat_out, 0.6404404361 as diff_from_long_out UNION ALL
-SELECT 3017 as id, 225 as person_id, 116 as person_id_out, 55.2723731271 as duration, '2018-08-15 08:08:55' as date, 0.8847920445 as diff_from_lat, 0.7161669338 as diff_from_long, 0.2459784922 as diff_from_lat_out, 0.5498778006 as diff_from_long_out UNION ALL
-SELECT 3018 as id, 225 as person_id, 116 as person_id_out, 100.7921002171 as duration, '2017-11-03 02:11:35' as date, 0.615111271 as diff_from_lat, 0.0112916221 as diff_from_long, 0.6255735939 as diff_from_lat_out, 0.6338641584 as diff_from_long_out UNION ALL
-SELECT 3019 as id, 225 as person_id, 116 as person_id_out, 2.9893465076 as duration, '2017-10-28 10:17:16' as date, 1.3020771116 as diff_from_lat, 2.4135306694 as diff_from_long, 0.3533194535 as diff_from_lat_out, 0.712558285 as diff_from_long_out UNION ALL
-SELECT 3020 as id, 225 as person_id, 116 as person_id_out, 100.107148072 as duration, '2018-01-18 04:44:35' as date, 0.2884769034 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out
+SELECT 3000 as id, 50 as person_id, 115 as person_id_out, 8.7791816997 as duration, '2018-01-17 02:48:20' as date, 0.772802583 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out
     ;;
+  }
+}
+
+view: call_pre4 {
+
+  derived_table: {
+    datagroup_trigger: once_yearly
+    sql:
+    SELECT 3001 as id, 116 as person_id, 224 as person_id_out, 95.7642733767 as duration, '2017-08-15 23:52:47' as date, 1.4284009011 as diff_from_lat, 0.2502406095 as diff_from_long, 0.5046431743 as diff_from_lat_out, 0.5752105443 as diff_from_long_out UNION ALL
+    SELECT 3002 as id, 116 as person_id, 224 as person_id_out, 3.7209556122 as duration, '2017-10-07 00:24:57' as date, 0.8944995023 as diff_from_lat, 0.0609547519 as diff_from_long, 0.1164173767 as diff_from_lat_out, 0.3251855976 as diff_from_long_out UNION ALL
+    SELECT 3003 as id, 116 as person_id, 224 as person_id_out, 30.6210994 as duration, '2018-02-17 07:04:24' as date, 1.3834397778 as diff_from_lat, 0.5018669453 as diff_from_long, 0.1135063482 as diff_from_lat_out, 1.1914340656 as diff_from_long_out UNION ALL
+    SELECT 3004 as id, 116 as person_id, 224 as person_id_out, 2.7746309091 as duration, '2018-03-31 02:18:17' as date, 0.4427012787 as diff_from_lat, 0.6815033073 as diff_from_long, 0.6967648148 as diff_from_lat_out, 0.5456786803 as diff_from_long_out UNION ALL
+    SELECT 3005 as id, 116 as person_id, 224 as person_id_out, 10.6278692895 as duration, '2018-05-05 02:31:23' as date, 1.3376061089 as diff_from_lat, 0.1091144363 as diff_from_long, 0.8213888148 as diff_from_lat_out, 1.941302814 as diff_from_long_out UNION ALL
+    SELECT 3006 as id, 224 as person_id, 116 as person_id_out, 12.9051510222 as duration, '2017-06-29 10:39:50' as date, 0.0438282586 as diff_from_lat, 1.1578269231 as diff_from_long, 0.0629411738 as diff_from_lat_out, 0.6404404361 as diff_from_long_out UNION ALL
+    SELECT 3007 as id, 224 as person_id, 116 as person_id_out, 55.2723731271 as duration, '2018-08-15 08:08:55' as date, 0.8847920445 as diff_from_lat, 0.7161669338 as diff_from_long, 0.2459784922 as diff_from_lat_out, 0.5498778006 as diff_from_long_out UNION ALL
+    SELECT 3008 as id, 224 as person_id, 116 as person_id_out, 9.7921002171 as duration, '2017-11-03 02:11:35' as date, 0.615111271 as diff_from_lat, 0.0112916221 as diff_from_long, 0.6255735939 as diff_from_lat_out, 0.6338641584 as diff_from_long_out UNION ALL
+    SELECT 3009 as id, 224 as person_id, 116 as person_id_out, 2.9893465076 as duration, '2017-10-28 10:17:16' as date, 1.3020771116 as diff_from_lat, 2.4135306694 as diff_from_long, 0.3533194535 as diff_from_lat_out, 0.712558285 as diff_from_long_out UNION ALL
+    SELECT 3010 as id, 224 as person_id, 116 as person_id_out, 10.107148072 as duration, '2018-01-18 04:44:35' as date, 0.2884769034 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out UNION ALL
+    SELECT 3011 as id, 116 as person_id, 225 as person_id_out, 950.7642733767 as duration, '2017-08-15 23:52:47' as date, 1.4284009011 as diff_from_lat, 0.2502406095 as diff_from_long, 0.5046431743 as diff_from_lat_out, 0.5752105443 as diff_from_long_out UNION ALL
+    SELECT 3012 as id, 116 as person_id, 225 as person_id_out, 300.7209556122 as duration, '2017-10-07 00:24:57' as date, 0.8944995023 as diff_from_lat, 0.0609547519 as diff_from_long, 0.1164173767 as diff_from_lat_out, 0.3251855976 as diff_from_long_out UNION ALL
+    SELECT 3013 as id, 116 as person_id, 225 as person_id_out, 300.6210994 as duration, '2018-02-17 07:04:24' as date, 1.3834397778 as diff_from_lat, 0.5018669453 as diff_from_long, 0.1135063482 as diff_from_lat_out, 1.1914340656 as diff_from_long_out UNION ALL
+    SELECT 3014 as id, 116 as person_id, 225 as person_id_out, 200.7746309091 as duration, '2018-03-31 02:18:17' as date, 0.4427012787 as diff_from_lat, 0.6815033073 as diff_from_long, 0.6967648148 as diff_from_lat_out, 0.5456786803 as diff_from_long_out UNION ALL
+    SELECT 3015 as id, 116 as person_id, 225 as person_id_out, 107.6278692895 as duration, '2018-05-05 02:31:23' as date, 1.3376061089 as diff_from_lat, 0.1091144363 as diff_from_long, 0.8213888148 as diff_from_lat_out, 1.941302814 as diff_from_long_out UNION ALL
+    SELECT 3016 as id, 225 as person_id, 116 as person_id_out, 12.9051510222 as duration, '2017-06-29 10:39:50' as date, 0.0438282586 as diff_from_lat, 1.1578269231 as diff_from_long, 0.0629411738 as diff_from_lat_out, 0.6404404361 as diff_from_long_out UNION ALL
+    SELECT 3017 as id, 225 as person_id, 116 as person_id_out, 55.2723731271 as duration, '2018-08-15 08:08:55' as date, 0.8847920445 as diff_from_lat, 0.7161669338 as diff_from_long, 0.2459784922 as diff_from_lat_out, 0.5498778006 as diff_from_long_out UNION ALL
+    SELECT 3018 as id, 225 as person_id, 116 as person_id_out, 100.7921002171 as duration, '2017-11-03 02:11:35' as date, 0.615111271 as diff_from_lat, 0.0112916221 as diff_from_long, 0.6255735939 as diff_from_lat_out, 0.6338641584 as diff_from_long_out UNION ALL
+    SELECT 3019 as id, 225 as person_id, 116 as person_id_out, 2.9893465076 as duration, '2017-10-28 10:17:16' as date, 1.3020771116 as diff_from_lat, 2.4135306694 as diff_from_long, 0.3533194535 as diff_from_lat_out, 0.712558285 as diff_from_long_out UNION ALL
+    SELECT 3020 as id, 225 as person_id, 116 as person_id_out, 100.107148072 as duration, '2018-01-18 04:44:35' as date, 0.2884769034 as diff_from_lat, 0.3480324369 as diff_from_long, 0.521353952 as diff_from_lat_out, 0.4069394925 as diff_from_long_out
+        ;;
   }
 }
