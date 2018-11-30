@@ -2,17 +2,33 @@
 view: person {
   derived_table: {
     datagroup_trigger: once_yearly
-    explore_source: person_pre {
-      column: id {}
-      column: person_id {}
-      column: full_name {}
-      column: latitude {}
-      column: longitude {}
-      column: risk_score {}
-      column: height {}
-      column: weight {}
-    }
+    sql:
+      SELECT
+          id
+        , person_id
+        , latitude
+        , longitude
+        , risk_score
+        , full_name
+        , height
+        , weight
+      FROM ${person_pre2.SQL_TABLE_NAME}
+
+      UNION ALL
+
+      SELECT
+          cast(id as int64) as id
+        , cast(person_id as int64) as person_id
+        , cast(latitude as float64) as latitude
+        , cast(longitude as float64) as latitude
+        , cast(static_risk_score as float64)  as risk_score
+        , 'KHAN TAHERI' as full_name
+        , cast(height as float64) as height
+        , cast(weight as float64) as weight
+      FROM ${person_pre3.SQL_TABLE_NAME}
+    ;;
   }
+
   dimension: id {
     primary_key: yes
     value_format: "0"
@@ -182,6 +198,26 @@ view: person {
       weight,
       average_risk_score
     ]
+  }
+}
+
+view: person_pre3 {
+  sql_table_name: dataset_military.new_enrollment  ;;
+}
+
+view: person_pre2 {
+  derived_table: {
+    datagroup_trigger: once_yearly
+    explore_source: person_pre {
+      column: id {}
+      column: person_id {}
+      column: full_name {}
+      column: latitude {}
+      column: longitude {}
+      column: risk_score {}
+      column: height {}
+      column: weight {}
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-connection: "lookerdata"
+connection: "military_connection"
 
 include: "*.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
@@ -23,6 +23,11 @@ datagroup: once_yearly {
   sql_trigger: SELECT extract(year from current_date()) ;;
 }
 
+datagroup: new_data {
+  max_cache_age: "12 hours"
+  sql_trigger: SELECT count(*) FROM dataset_military.new_enrollment ;;
+}
+
 explore: event_activity_connection {
   label: "Event"
   view_label: "Event"
@@ -35,7 +40,7 @@ explore: event_activity_connection {
   join: max_suspicious_activities_max_max {
     fields: []
     relationship: one_to_one
-    sql_on: 1 = 1 ;;
+    sql_on: 1 = 1  ;;
   }
 }
 
