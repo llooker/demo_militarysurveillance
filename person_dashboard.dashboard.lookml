@@ -236,6 +236,9 @@
     - "#776fdf"
     - "#e9b404"
     - "#635189"
+    color_application:
+      collection_id: legacy
+      palette_id: tomato_to_steel_blue
     show_value_labels: false
     label_density: 25
     legend_position: center
@@ -243,7 +246,10 @@
     y_axis_gridlines: true
     show_view_names: false
     point_style: none
-    series_colors: {}
+    series_colors:
+      person.average_risk_score: "#D06464"
+      person_to_person_activity.connection_score_risk: "#AF6671"
+      average_suspicious_score.average_suspicious_activity_score: "#8E687E"
     series_labels:
       person.average_risk_score: Biometrics Risk
       person_to_person_activity.connection_score_risk: Connections Risk
@@ -632,8 +638,8 @@
       Miles from Event: event_activity_connection.miles_from_event
       Days from Event: event_activity_connection.days_from_event
     row: 8
-    col: 0
-    width: 6
+    col: 9
+    width: 7
     height: 5
   - title: Activities Near Terrorist Events
     name: Activities Near Terrorist Events
@@ -683,8 +689,8 @@
     listen:
       Person ID: person.id
     row: 8
-    col: 6
-    width: 10
+    col: 0
+    width: 9
     height: 5
   - title: Risk Score 2
     name: Risk Score 2
@@ -724,6 +730,9 @@
     listen:
       Person ID: person.id
       Risk Threshold: person.threshold_for_risk
+      Weight - Biometrics: risk.weight_biometric_risk
+      Weight - Connection: risk.weight_connection_risk
+      Weight - Activity: risk.weight_activity_risk
     row: 2
     col: 0
     width: 5

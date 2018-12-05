@@ -21,7 +21,7 @@
 
 view: person {
   derived_table: {
-    # datagroup_trigger: once_yearly
+    datagroup_trigger: once_yearly
     sql:
       SELECT
           id
@@ -33,21 +33,19 @@ view: person {
         , height
         , weight
       FROM ${person_pre2.SQL_TABLE_NAME}
-
-      UNION ALL
-
-      SELECT
-          cast(id as int64) as id
-        , cast(person_id as int64) as person_id
-        , cast(latitude as float64) as latitude
-        , cast(longitude as float64) as longitude
-        , cast(static_risk_score as float64)  as risk_score
-        , 'KHAN TAHERI' as full_name
-        , cast(height as float64) as height
-        , cast(weight as float64) as weight
-      FROM ${person_pre3.SQL_TABLE_NAME}
     ;;
   }
+      #   UNION ALL
+      #   SELECT
+      #     cast(id as int64) as id
+      #   , cast(person_id as int64) as person_id
+      #   , cast(latitude as float64) as latitude
+      #   , cast(longitude as float64) as longitude
+      #   , cast(static_risk_score as float64)  as risk_score
+      #   , 'KHAN TAHERI' as full_name
+      #   , cast(height as float64) as height
+      #   , cast(weight as float64) as weight
+      # FROM ${person_pre3.SQL_TABLE_NAME}
 
   dimension: id {
     primary_key: yes
