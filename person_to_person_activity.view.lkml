@@ -249,7 +249,7 @@ view: person_to_person_activity {
   }
 
   derived_table: {
-    # datagroup_trigger: once_yearly
+    datagroup_trigger: once_yearly
     sql:
       SELECT
         coalesce(a.person_id,b.person_id) as person_id,
@@ -289,7 +289,7 @@ view: person_to_person_activity {
 
 view: person_to_person_calls {
   derived_table: {
-    # datagroup_trigger: once_yearly
+    datagroup_trigger: once_yearly
     explore_source: person {
       column: person_id { field: call.person_id }
       column: person_id_calling { field: call.person_id_calling }
