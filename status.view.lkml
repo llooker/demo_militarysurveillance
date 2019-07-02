@@ -72,7 +72,7 @@ view: status {
 
   dimension: date_last_updated {
     type: date
-    sql: cast(DATE_SUB(DATE "2018-11-15", INTERVAL ${days_old} DAY) as timestamp) ;;
+    sql: cast(dateadd(day, ${days_old}*-1, '2018-11-15') as timestamp) ;;
   }
 
   measure: max_date {

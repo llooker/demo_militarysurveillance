@@ -54,7 +54,7 @@ view: photo_members {
   derived_table: {
     datagroup_trigger: once_yearly
     sql:
-        SELECT a.id, a.phone_owner as person_id, b.person_id as person_id_out, b.photo_id, count(*)
+        SELECT a.id, a.phone_owner as person_id, b.person_id as person_id_out, b.photo_id, count(*) as count
         FROM ${photo.SQL_TABLE_NAME} a
         JOIN ${photo_members_pre.SQL_TABLE_NAME} b
           ON a.id = b.photo_id
