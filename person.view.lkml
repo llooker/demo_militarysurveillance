@@ -186,17 +186,17 @@ view: person {
     sql: ${id} ;;
     html:
     {% if value < 95 %}
-    <img src="https://backpackingman.com/wp-content/uploads/2016/10/afghanistan-wakhan-valley.jpg" height="120" width="170" />
+    <img src="https://www.evernote.com/shard/s710/res/2614f06a-6d08-4a76-a5fe-1b4ea1fa0d18" width="150" />
     {% elsif value > 94 and value < 104 %}
-    <img src="https://cbsdenver.files.wordpress.com/2014/02/pooley_don-hostage-suspect-mug-shot-use-this-one.jpg?w=420&h=236" height="120" width="170" />
+    <img src="https://www.evernote.com/shard/s710/res/b3711572-8f8b-48fb-a819-56467d056d27" width="150"/>
     {% elsif value > 103 and value < 117 %}
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs3vY3F0Y6TYHnSGcpRjAThrqEkssfNJ01p7QE-lmJ8w3V3VzJ" height="120" width="130" />
+    <img src="https://www.evernote.com/shard/s710/res/04219275-d63a-4883-9eca-ef3e3978c7e8" width="150"/>
     {% elsif value > 116 and value < 156 %}
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr9y4KPu65-luwp3v24IVVA1bK949nqIkfCuhT9mH3R8AtRB77" height="120" width="170"/>
+    <img src="https://www.evernote.com/shard/s710/res/42f46762-1a17-4038-bd55-33107c7ea730" width="150"/>
     {% else %}
-    <img src="https://newscdn.weigelbroadcasting.com/oYfce-1495591096-17070-blog-11866057_G.jpg" height="120" width="170" />
+    <img src="https://www.evernote.com/shard/s710/res/5432506f-4a58-41f9-86a7-9fcc1dad1efc" width="150" />
     {% endif %}
-      ;;
+    ;;
   }
 
   parameter: threshold_for_risk {
