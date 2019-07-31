@@ -186,15 +186,15 @@ view: person {
     sql: ${id} ;;
     html:
     {% if value < 95 %}
-    <img src="https://www.evernote.com/shard/s710/res/2614f06a-6d08-4a76-a5fe-1b4ea1fa0d18" width="150" />
+    <img src="https://live.staticflickr.com/65535/48421990231_075f95f27d_m.jpg" width="150" />
     {% elsif value > 94 and value < 104 %}
-    <img src="https://www.evernote.com/shard/s710/res/b3711572-8f8b-48fb-a819-56467d056d27" width="150"/>
+    <img src="https://live.staticflickr.com/65535/48422141932_60e02d5233_m.jpg" width="150"/>
     {% elsif value > 103 and value < 117 %}
-    <img src="https://www.evernote.com/shard/s710/res/04219275-d63a-4883-9eca-ef3e3978c7e8" width="150"/>
+    <img src="https://live.staticflickr.com/65535/48422141952_375bf859e1_m.jpg" width="150"/>
     {% elsif value > 116 and value < 156 %}
-    <img src="https://www.evernote.com/shard/s710/res/42f46762-1a17-4038-bd55-33107c7ea730" width="150"/>
+    <img src="https://live.staticflickr.com/65535/48422141977_33bcd7c924_m.jpg" width="150"/>
     {% else %}
-    <img src="https://www.evernote.com/shard/s710/res/5432506f-4a58-41f9-86a7-9fcc1dad1efc" width="150" />
+    <img src="https://live.staticflickr.com/65535/48422141982_273d0f7d61_m.jpg" width="150" />
     {% endif %}
     ;;
   }
