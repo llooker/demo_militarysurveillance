@@ -166,6 +166,12 @@ view: person {
         required: yes
         default: "60"
       }
+      form_param: {
+        name: "Explanation"
+        type: string
+        required: no
+        default: "New information came in about the suspect - needs to be changed"
+      }
     }
   }
 
