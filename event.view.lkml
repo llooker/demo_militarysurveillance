@@ -19,6 +19,7 @@ view: event {
 
   dimension_group: event {
     type: time
+    datatype: timestamp
     timeframes: [
       raw,
       time,
