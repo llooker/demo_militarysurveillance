@@ -23,10 +23,10 @@ datagroup: once_yearly {
   sql_trigger: SELECT extract(year from current_date()) ;;
 }
 
-datagroup: new_data {
-  max_cache_age: "12 hours"
-  sql_trigger: SELECT count(*) FROM dataset_military.new_enrollment ;;
-}
+# datagroup: new_data {
+#   max_cache_age: "12 hours"
+#   sql_trigger: SELECT count(*) FROM dataset_military.new_enrollment ;;
+# }
 
 explore: event_activity_connection {
   label: "Event"
