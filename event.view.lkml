@@ -13,7 +13,7 @@ view: event {
 #   }
 
   dimension: event_name {
-    type: number
+    type: string
     sql: concat(${TABLE}.name, '-', cast(${event_date} as string), ' (', cast(${event.people_killed} as string), ' Killed)') ;;
   }
 
