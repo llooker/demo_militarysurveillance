@@ -1,7 +1,7 @@
-connection: "snow_demo_db"
+connection: "looker-private-demo"
 
-include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "/Views/*.view.lkml"         # include all views in this project
+include: "/Dashboards/*.dashboard.lookml"  # include all dashboards in this project
 
 datagroup: once_daily {
   max_cache_age: "24 hours"
