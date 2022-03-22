@@ -18,7 +18,7 @@ view: photo {
     value_format_name: id
     link: {
       label: "Person Lookup"
-      url: "https://demoexpo.looker.com/dashboards/52?Person%20ID={{ value }}"
+      url: "https://googledemo.looker.com/dashboards-legacy/609?Person%20ID={{ value }}"
       icon_url: "https://looker.com/favicon.ico"
     }
   }
